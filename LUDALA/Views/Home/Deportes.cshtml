@@ -1,0 +1,19 @@
+﻿@model LUDALA.Models.ContenidoRssFeed
+@{
+    ViewBag.Title = "Entretenimiento";
+}
+@section Scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            window.EjecutarAjax(window._urlDeportes, "AgregarDivReedFeed", '');
+        });
+
+    </script>
+}
+@Html.Partial("Variables")
+<h2>Deportes</h2>
+<div id="Titulo"></div>
+<div >
+    <ul id="items"> </ul>
+</div>

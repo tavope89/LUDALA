@@ -1,0 +1,38 @@
+﻿@model LUDALA.Models.ContenidoRssFeed
+@{
+    ViewBag.Title = "Home Page";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+            <p>
+                Proyecto de evaluación para la empresa Ludala Inc.
+            </p>
+        </div>
+    </section>
+}
+
+<title>@Model.TituloFeed</title>
+<div id="items">
+    <ul>
+        @foreach (var rssItem in Model.Articulos)
+        {
+            <li>
+                <h2>
+                    <a href="@rssItem.Link">@rssItem.Titulo</a>
+                </h2>
+                <p>
+                    @rssItem.FechaPublicacion.ToLongDateString()
+                    @rssItem.Autor
+                </p>
+                <div>
+                    @Html.Raw(rssItem.Contenido)
+                </div>
+            </li>
+        }
+    </ul>
+</div>
